@@ -1,5 +1,6 @@
 namespace BettorTest;
-using DogRacing;
+
+using Classes;
 
 public class BettorBalance
 {
