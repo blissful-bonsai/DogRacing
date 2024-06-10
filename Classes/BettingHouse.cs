@@ -77,5 +77,33 @@
                 Console.WriteLine($"Added a runner\nId: {runner.Id}\nName: {runner.Name}\n");
             }
         }
+
+        public void Race()
+        {
+            bool hasWinner = false;
+            while (!hasWinner)
+            {
+                for (int i = 0; i < this.RunnerList.Count; i++)
+                {
+                    this.RunnerList[i].Run();
+                    if (this.RunnerList[i].Won())
+                    {
+                        hasWinner = true;
+                        break;
+                    }
+                }
+            }
+
+            //for (int i = 0; i < this.RunnerList.Count; i++)
+            //{
+            //    this.RunnerList[i].Run();
+            //    if (this.RunnerList[i].Won())
+            //    {
+            //        Console.WriteLine($"The runner {this.RunnerList[i].Name} has won!");
+            //        return true;
+            //    }
+            //}
+            //return false;
+        }
     }
 }

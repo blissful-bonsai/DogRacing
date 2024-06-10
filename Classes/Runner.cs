@@ -1,16 +1,19 @@
-﻿public class Runner
+﻿namespace Classes;
+public class Runner
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
     public decimal TotalDistance { get; set; }
     public decimal MinSpeed { get; set; }
     public decimal MaxSpeed { get; set; }
+    public bool HasWon { get; set; }
 
 
     public Runner()
     {
         Id = Guid.NewGuid();
         TotalDistance = 0;
+        HasWon = false;
     }
 
     public void Run()
@@ -29,6 +32,7 @@
     {
         if (this.TotalDistance >= 100)
         {
+            this.HasWon = true;
             return true;
         }
         return false;

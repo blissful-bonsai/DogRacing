@@ -16,13 +16,20 @@
             Balance = 20;
         }
 
-        public void PickARunner(List<Runner> runnerList)
+        public void ShowRunners(List<Runner> runnerList)
         {
             for (int i = 0; i < runnerList.Count; i++)
             {
-                Console.WriteLine($"List of runners available: {i}");
+                Console.WriteLine($"The runner name is: {runnerList[i].Name}");
             }
         }
+
+        public void PickRunner(List<Runner> runnerList, int userChoice)
+        {
+            this.Runner = runnerList[userChoice];
+            Console.WriteLine($"{this.Name} has bet on the runner of name {runnerList[userChoice].Name}");
+        }
+
     }
 
 }

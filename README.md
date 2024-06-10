@@ -10,7 +10,7 @@ A corrida continua até que um dos corredores atinja a marca de 100 metros, send
 
 ### Cenários de Teste
 
-#### Funcionalidade: Configuração de Apostas
+#### Funcionalidade: Configuração de Apostas (Feita)
 
 ##### Cenário: Definir número de apostadores
 - **Dado que** o sistema está pronto para iniciar a configuração
@@ -23,7 +23,7 @@ A corrida continua até que um dos corredores atinja a marca de 100 metros, send
 - **Quando** o usuário informa o número de corredores
 - **Então** o sistema deve verificar se há no mínimo 4 corredores
 
-#### Funcionalidade: Movimento dos Corredores
+#### Funcionalidade: Movimento dos Corredores (Feita)
 
 ##### Cenário: Movimento aleatório dos corredores
 - **Dado que** a corrida está em andamento
@@ -33,7 +33,7 @@ A corrida continua até que um dos corredores atinja a marca de 100 metros, send
 - **E** o Corredor 3 deve mover entre 20 cm e 40 cm
 - **E** o Corredor 4 deve mover entre 10 cm e 60 cm
 
-#### Funcionalidade: Apostas
+#### Funcionalidade: Apostas (Fazendo)
 
 ##### Cenário: Registro de apostas
 - **Dado que** o sistema está pronto para receber apostas
