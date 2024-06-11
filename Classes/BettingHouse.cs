@@ -10,6 +10,7 @@
             BettorList = new List<Bettor>();
             RunnerList = new List<Runner>();
         }
+        static int runnerType = 0;
 
         public void AskForNames(bool bettor)
         {
@@ -40,7 +41,9 @@
                     Console.WriteLine("Insert a name for the runner: ");
                     string name = Console.ReadLine();
                     nameList.Add(name);
-                    Console.WriteLine("Specify the type of runner: ");
+                    Console.WriteLine("Specify the type of runner:\n 0:0-70\n1:30-50\n2:20-40\n3:10-60 ");
+                    // This is a static int declared at the beggining
+                    runnerType = int.Parse(Console.ReadLine());
                     if (nameList.Count >= 4)
                     {
                         Console.WriteLine("You have 4 runners, specify if you want to continue: ");
@@ -48,7 +51,20 @@
                     }
 
                 }
-                RegisterRunners(nameList);
+                RegisterRunners(nameList, runnerType);
+            }
+        }
+
+        public void RegisterRunners(List<string> nameList, int runnerType)
+        {
+            foreach (string name in nameList)
+            {
+                List<Runner> runnerTypes = new List<Runner>() { new ZeroSeventyRunner(), new ThirtyFiftyRunner(), new TwentyFortyRunner() };
+                Runner runner = runnerTypes.ElementAt(runnerType); // Element at index, kind of
+                Guid id = Guid.NewGuid();
+                runner.Id = id;
+                runner.Name = name;
+                RunnerList.Add(runner);
             }
         }
 
@@ -65,18 +81,7 @@
             }
         }
 
-        public void RegisterRunners(List<string> nameList)
-        {
-            foreach (string name in nameList)
-            {
-                Guid id = Guid.NewGuid();
-                Runner runner = new Runner();
-                runner.Id = id;
-                runner.Name = name;
-                RunnerList.Add(runner);
-                Console.WriteLine($"Added a runner\nId: {runner.Id}\nName: {runner.Name}\n");
-            }
-        }
+
 
         public void Race()
         {
@@ -94,16 +99,6 @@
                 }
             }
 
-            //for (int i = 0; i < this.RunnerList.Count; i++)
-            //{
-            //    this.RunnerList[i].Run();
-            //    if (this.RunnerList[i].Won())
-            //    {
-            //        Console.WriteLine($"The runner {this.RunnerList[i].Name} has won!");
-            //        return true;
-            //    }
-            //}
-            //return false;
         }
     }
 }

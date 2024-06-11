@@ -12,9 +12,10 @@ public class BettorPickARunner
         List<string> runnerNames = new List<string>() { "Dylan", "Thomas", "Auden", "Tars", "Frankestein" };
 
         // Act
-
+        Random random = new Random();
+        int runnerType = random.Next(0, 3);
         // Registering the runners then the bettors
-        bettingHouse.RegisterRunners(runnerNames);
+        bettingHouse.RegisterRunners(runnerNames, runnerType);
         bettingHouse.RegisterBettors(bettorNames);
 
         // Having the bettors pick a runner using the i from the loop

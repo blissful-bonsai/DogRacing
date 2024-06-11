@@ -13,24 +13,21 @@ public class DetermineWinner
         // Arrange
         BettingHouse bettingHouse = new BettingHouse();
         List<string> bettorNames = new List<string>() { "Tiago", "Tux", "Pixie", "Victor", "Will" };
-        List<string> runnerNames = new List<string>() { "Dylan", "Thomas", "Auden", "Tars", "Frankestein" };
+        List<string> runnerNamesOne = new List<string>() { "Dylan", "Thomas" };
+        List<string> runnerNamesTwo = new List<string>() { "Auden", "Tars", "Frankestein" };
 
         // Act
         // Registering the runners then the bettors
-        bettingHouse.RegisterRunners(runnerNames);
+        bettingHouse.RegisterRunners(runnerNamesOne, 0);
+        bettingHouse.RegisterRunners(runnerNamesTwo, 1);
         bettingHouse.RegisterBettors(bettorNames);
 
-
-        // Make the race happen
+        // Make them race
         bettingHouse.Race();
+        var winner = bettingHouse.RunnerList.FirstOrDefault(r => r.HasWon); // First or default finds the first element in the list being iterated through that meets the specified conditions
+        // Assert
+        Assert.True(winner == null, $"There's a winner! His name is: {winner.Name}!");
 
-        // If it was a var, would winner become a Runner instance?
-        // What if no runner is found on the list? 
-        Runner winner = bettingHouse.RunnerList.FirstOrDefault(r => r.HasWon);
-
-        // Asssert
-        // If the FirstOrDefault fails, winner is null
-        Assert.NotNull(winner);
     }
 
 }

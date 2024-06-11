@@ -18,15 +18,5 @@ public class AtLeastFiveBettors
         Assert.True(bettingHouse.BettorList.Count >= 5);
     }
 
-    //[Fact]
-    //public void EachBettorShouldPickRunner()
-    //{
-    //    BettingHouse bettingHouse = new BettingHouse();
-    //    List<string> names = new List<string> { "Tiago", "Tux", "Pixie", "Victor", "Will", "Sean" };
-
-    //    // Act
-    //    bettingHouse.RegisterBettors(names);
-
-
-    //}
 }
+

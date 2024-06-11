@@ -24,11 +24,6 @@
             }
         }
 
-        public void PickRunner(List<Runner> runnerList, int userChoice)
-        {
-            this.Runner = runnerList[userChoice];
-            Console.WriteLine($"{this.Name} has bet on the runner of name {runnerList[userChoice].Name}");
-        }
 
     }
 
