@@ -30,7 +30,8 @@
                         userInput = int.Parse(Console.ReadLine());
                     }
                 }
-                RegisterBettors(nameList);
+                Console.WriteLine("Choose a runner: ");
+                //RegisterBettors(nameList);
             }
             else
             {
@@ -59,7 +60,7 @@
         {
             foreach (string name in nameList)
             {
-                List<Runner> runnerTypes = new List<Runner>() { new ZeroSeventyRunner(), new ThirtyFiftyRunner(), new TwentyFortyRunner() };
+                List<Runner> runnerTypes = new List<Runner>() { new ZeroSeventyRunner(), new ThirtyFiftyRunner(), new TwentyFortyRunner(), new TenSixtyRunner() };
                 Runner runner = runnerTypes.ElementAt(runnerType); // Element at index, kind of
                 Guid id = Guid.NewGuid();
                 runner.Id = id;
@@ -68,7 +69,7 @@
             }
         }
 
-        public void RegisterBettors(List<string> nameList)
+        public void RegisterBettors(List<string> nameList, int runnerToBetOn)
         {
             foreach (string name in nameList)
             {
@@ -76,6 +77,7 @@
                 Bettor bettor = new Bettor();
                 bettor.Id = id;
                 bettor.Name = name;
+                bettor.Runner = RunnerList[runnerToBetOn];
                 BettorList.Add(bettor);
                 Console.WriteLine($"Added a bettor\nId:{bettor.Id}\nName: {bettor.Name}\n");
             }

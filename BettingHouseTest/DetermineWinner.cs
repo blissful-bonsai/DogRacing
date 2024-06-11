@@ -18,15 +18,23 @@ public class DetermineWinner
 
         // Act
         // Registering the runners then the bettors
-        bettingHouse.RegisterRunners(runnerNamesOne, 0);
+        bettingHouse.RegisterRunners(runnerNamesOne, 2);
         bettingHouse.RegisterRunners(runnerNamesTwo, 1);
-        bettingHouse.RegisterBettors(bettorNames);
+        foreach (Runner runner in bettingHouse.RunnerList) // This loop was created to check whether or not there was a bug on the race, because the ThirtyFity Runner was winning EVERY SINGLE RACE
+        {
+            if (runner.Name == runnerNamesOne[0] || runner.Name == runnerNamesOne[1])
+            {
+                runner.TotalDistance = 29; // After 8 iterations and 7 wins from the TwentyForty type, the ThirtyFifty won
+            }
+        }
+        bettingHouse.RegisterBettors(bettorNames, 0);
 
         // Make them race
         bettingHouse.Race();
         var winner = bettingHouse.RunnerList.FirstOrDefault(r => r.HasWon); // First or default finds the first element in the list being iterated through that meets the specified conditions
         // Assert
-        Assert.True(winner == null, $"There's a winner! His name is: {winner.Name}!");
+        Assert.True(winner != null, $"There's a winner, his/her name is {winner.Name}, he/she ran {winner.TotalDistance}");
+        Assert.False(winner.Name == "Auden" || winner.Name == "Tars" || winner.Name == "Frankestein");
 
     }
 

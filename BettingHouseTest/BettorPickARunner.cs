@@ -16,13 +16,7 @@ public class BettorPickARunner
         int runnerType = random.Next(0, 3);
         // Registering the runners then the bettors
         bettingHouse.RegisterRunners(runnerNames, runnerType);
-        bettingHouse.RegisterBettors(bettorNames);
-
-        // Having the bettors pick a runner using the i from the loop
-        for (int i = 0; i < bettingHouse.BettorList.Count; i++)
-        {
-            bettingHouse.BettorList[i].PickRunner(bettingHouse.RunnerList, i);
-        }
+        bettingHouse.RegisterBettors(bettorNames, 0);
 
         // Assert
         for (int i = 0; i < bettingHouse.BettorList.Count; i++)

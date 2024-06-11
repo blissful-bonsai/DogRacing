@@ -15,16 +15,6 @@
         {
             Balance = 20;
         }
-
-        public void ShowRunners(List<Runner> runnerList)
-        {
-            for (int i = 0; i < runnerList.Count; i++)
-            {
-                Console.WriteLine($"The runner name is: {runnerList[i].Name}");
-            }
-        }
-
-
     }
 
 }
